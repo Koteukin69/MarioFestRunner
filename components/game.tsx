@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState, useEffect, useCallback } from "react";
-import { Maximize, Minimize } from "lucide-react";
+import { Maximize, Minimize, Medal } from "lucide-react";
 import Link from "next/link";
 
 export default function Game({ userId, isMobile }: { userId: string; isMobile: boolean }) {
@@ -50,12 +50,12 @@ export default function Game({ userId, isMobile }: { userId: string; isMobile: b
       >
         {isFullscreen ? <Minimize size={22} /> : <Maximize size={22} />}
       </button>
-      {/*<Link
-        href="/applicant"
+      <Link
+        href="/leaderboard"
         className="absolute left-4 top-4 z-1 rounded-xl bg-black/50 p-2.5 text-white backdrop-blur-sm active:scale-90 transition-transform"
       >
-        <ArrowLeft size={22} />
-      </Link>*/}
+        <Medal size={22} />
+      </Link>
       <iframe
         src={`/api/game-assets/index.html?user=${userId}`}
         className="w-full h-full border-none block bg-transparent"
